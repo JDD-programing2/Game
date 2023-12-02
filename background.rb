@@ -4,8 +4,10 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 ASPECT = SCREEN_WIDTH.to_f / SCREEN_HEIGHT.to_f
 
-camera = Mittsu::PerspectiveCamera.new(60.0, ASPECT, 1.0, 2100.0)
+camera = Mittsu::PerspectiveCamera.new(75.0, ASPECT, 1.0, 2100.0)
 camera.position.z = 1500.0
+camera.position.x = 400.0
+camera.position.y = 300.0
 
 camera_ortho = Mittsu::OrthographicCamera.new(-SCREEN_WIDTH / 2.0, SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0, -SCREEN_HEIGHT / 2.0, 1.0, 10.0)
 camera_ortho.position.z = 10.0
@@ -16,12 +18,14 @@ scene_ortho = Mittsu::Scene.new
 amount = 20
 radius = 500
 
-map_a = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'sprite0.png')
+map_a = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), '背景.png')
 
 material_a = Mittsu::SpriteMaterial.new(map: map_a)
 
-hud_image_width = material_a.map.image.width
-hud_image_height = material_a.map.image.height
+/hud_image_width = material_a.map.image.width
+hud_image_height = material_a.map.image.height/
+hud_image_width = 400
+hud_image_height = 300
 
 sprite_top_left, sprite_top_right, sprite_bottom_left, sprite_bottom_right, sprite_center = 5.times.map do
   Mittsu::Sprite.new(material_a).tap do |sprite|
