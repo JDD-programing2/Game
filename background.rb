@@ -18,7 +18,7 @@ scene_ortho = Mittsu::Scene.new
 amount = 20
 radius = 500
 
-map_a = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), '背景.png')
+map_a = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'イメージ/背景.png')
 
 material_a = Mittsu::SpriteMaterial.new(map: map_a)
 
@@ -50,8 +50,8 @@ update_hud_sprites = -> (window_width, window_height) {
 
 update_hud_sprites.(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'sprite1.png')
-map_c = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'sprite2.png')
+map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'イメージ/sprite1.png')
+map_c = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), 'イメージ/sprite2.png')
 
 group = Mittsu::Group.new
 
