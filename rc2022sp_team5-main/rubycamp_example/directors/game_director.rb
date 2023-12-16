@@ -3,12 +3,12 @@ require_relative 'base'
 module Directors
 	# ゲーム本編のディレクター
 	class GameDirector < Base
-		TANK_SPEED = 0.05
+		TANK_SPEED = 0.08
 		MOUSE_SENSITIVITY = 0.005
-		BULLET_SPEAD = 0.3
+		BULLET_SPEAD = 0.2
 		ENEMY_MAX = 10
-		ENEMY_RADIUS = 0.5
-		BULLET_RADIUS = 0.1
+		ENEMY_RADIUS = 1.5
+		BULLET_RADIUS = 0.2
 
 
 		# 初期化
@@ -26,6 +26,7 @@ module Directors
 
 			# 敵の詰め合わせ用配列
 			@enemies = []
+
 
 			# 現在のフレーム数をカウントする
 			@frame_counter = 0
@@ -47,7 +48,13 @@ module Directors
 			# 各弾丸について当たり判定実施
 			@bullets.each{|bullet| hit_any_enemies(bullet) }
 
+			hit_any_enemies2
+
+            
+
 			# 消滅済みの弾丸及び敵を配列とシーンから除去(わざと複雑っぽく記述しています)
+
+
 			rejected_bullets = []
 			@bullets.delete_if{|bullet| bullet.expired ? rejected_bullets << bullet : false }
 			rejected_bullets.each{|bullet| self.scene.remove(bullet.mesh) }
@@ -160,9 +167,11 @@ module Directors
 			@temporary_tank = Mittsu::Object3D.new
 			self.scene.add(@tank)
 
-
-			self.camera.position.z = -3.0
+            #変更点　カメラポジション変更
+			self.camera.position.x = 0
+			self.camera.position.z = -3
 			self.camera.position.y = 2
+
 			self.camera.rotation.y = Math::PI
 			self.camera.rotation.x = Math::PI/6.0
 
@@ -189,8 +198,8 @@ module Directors
 
 			# 敵のテクスチャを読み込む
 			@enemy_textures = [
-				Mittsu::ImageUtils.load_texture('images/gost_simple_red.png'),
-				Mittsu::ImageUtils.load_texture('images/gost_shadow_black.png')
+				Mittsu::ImageUtils.load_texture('images/ghost3.png'),
+				Mittsu::ImageUtils.load_texture('images/ghost4.png')
 			]
 
 			# 視点操作の処理
@@ -237,5 +246,37 @@ module Directors
 				end
 			end
 		end
+
+		def hit_any_enemies2
+			@enemies.each do |enemy|
+				next if enemy.expired
+			    distance = @tank.position.distance_to(enemy.position)
+		        if distance <= 1.2 
+			        puts "GameOver... "
+			        puts "シーン遷移 → EndingDirector"
+			        transition_to_next_director
+				end
+			end
+		end
+
+		# def hit_any_enemies(tank)
+		# 	return if tank.expired
+
+		# 	@enemies.each do |enemy|
+		# 		next if enemy.expired
+		# 		if tank_position == self.mesh.position
+		# 			puts "GameOver... "
+		# 			tank.expired = true
+		# 			enemy.expired = true
+
+		# 			puts "シーン遷移 → EndingDirector"
+		# 			transition_to_next_director
+		# 			break
+					
+
+					
+		# 		end
+		# 	end
+		# end
 	end
 end

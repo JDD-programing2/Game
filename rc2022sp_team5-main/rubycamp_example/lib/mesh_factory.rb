@@ -59,20 +59,21 @@ class MeshFactory
 
 
 		tank.rotation.y = Math::PI
+
         tank.position.set(0,-50,0)
+		
 		scene.add(tank)
 
 		
-		
-		geometry = Mittsu::PlaneGeometry.new(0.25, 0.25)
-		texture_map = Mittsu::ImageUtils.load_texture("images/kurahashi-sann.png")
-		material = Mittsu::MeshBasicMaterial.new(map: texture_map)
-		mesh = Mittsu::Mesh.new(geometry, material)
-		mesh.position.y = 0.15
-		mesh.position.z = -0.1
-		mesh.rotation.x = Math::PI/3
-		mesh.rotation.y = Math::PI
-		turret.add(mesh)
+		#戦車のメッシュを変えるコード。今回は使用しない
+		#geometry = Mittsu::PlaneGeometry.new(0.25, 0.25)
+		#material = Mittsu::MeshBasicMaterial.new(map: texture_map)
+		#mesh = Mittsu::Mesh.new(geometry, material)
+		#mesh.position.y = 0.15
+		#mesh.position.z = -0.1
+		#mesh.rotation.x = Math::PI/3
+		#mesh.rotation.y = Math::PI
+		#turret.add(mesh)
 
 		tank.rotation.y = Math::PI
 

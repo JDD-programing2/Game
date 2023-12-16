@@ -36,7 +36,7 @@ class TextureFactory
 	end
 
 	def self.create_title_background
-		Mittsu::ImageUtils.load_texture("images/kurahashi.png")
+		Mittsu::ImageUtils.load_texture("images/forest_ft.png")
 	end
 
 	def self.create_score_zannen_description
