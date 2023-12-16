@@ -26,7 +26,7 @@ class Enemy
 
 	# 1フレーム分の進行処理
 	#敵を振動？させるプログラム
-	#今回はポジションの変化値を0にして動かないようにしている
+
 	def play(tank_position)
 		dx = rand(5)
 		dy = rand(5)
@@ -38,38 +38,38 @@ class Enemy
         case dx1
 		when 1
 			if(self.mesh.position.x < tank_position.x)
-				self.mesh.position.x += 0.02
+				self.mesh.position.x += 0.05
 			end
 
 			if(self.mesh.position.x > tank_position.x)
-				self.mesh.position.x -= 0.02
+				self.mesh.position.x -= 0.05
 			end
 
 		when 2
 			if(self.mesh.position.x < tank_position.x)
-				self.mesh.position.x += 0.02
+				self.mesh.position.x += 0.05
 			end
 
 			if(self.mesh.position.x > tank_position.x)
-				self.mesh.position.x -= 0.02
+				self.mesh.position.x -= 0.05
 			end
 
 		when 3
 			if(self.mesh.position.z < tank_position.z)
-				self.mesh.position.z += 0.02
+				self.mesh.position.z += 0.05
 			end
 
 			if(self.mesh.position.z > tank_position.z)
-				self.mesh.position.z -= 0.02
+				self.mesh.position.z -= 0.05
 			end
 
 		when 4
 			if(self.mesh.position.z < tank_position.z)
-				self.mesh.position.z += 0.02
+				self.mesh.position.z += 0.05
 			end
 
 			if(self.mesh.position.z > tank_position.z)
-				self.mesh.position.z -= 0.02
+				self.mesh.position.z -= 0.05
 			end
 
 		when 5

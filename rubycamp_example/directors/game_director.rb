@@ -50,6 +50,8 @@ module Directors
 
 			hit_any_enemies2
 
+
+
             
 
 			# 消滅済みの弾丸及び敵を配列とシーンから除去(わざと複雑っぽく記述しています)
