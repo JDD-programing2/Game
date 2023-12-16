@@ -8,7 +8,7 @@ SCREEN_HEIGHT = 768
 ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT.to_f
 
 # 全体で共通のレンダラーを生成
-renderer = Mittsu::OpenGLRenderer.new width: SCREEN_WIDTH, height: SCREEN_HEIGHT, title: '進撃のEast Back'
+renderer = Mittsu::OpenGLRenderer.new width: SCREEN_WIDTH, height: SCREEN_HEIGHT, title: '本当にあった怖いシューティングゲーム'
 
 # 初期シーンのディレクターオブジェクトを生成
 director = Directors::TitleDirector.new(screen_width: SCREEN_WIDTH, screen_height: SCREEN_HEIGHT, renderer: renderer)

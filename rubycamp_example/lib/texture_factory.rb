@@ -29,7 +29,7 @@ class TextureFactory
 
 	# エンディング画面の説明用文字列テクスチャを生成
 	def self.create_ending_description
-		Mittsu::ImageUtils.load_texture("images/ending_description.png")
+		Mittsu::ImageUtils.load_texture("images/ending.png")
 	end
 
 	def self.create_title_background
@@ -37,14 +37,14 @@ class TextureFactory
 	end
 
 	def self.create_score_zannen_description
-		Mittsu::ImageUtils.load_texture("images/zannen.png")
+		Mittsu::ImageUtils.load_texture("images/論外.png")
 	end
 
 	def self.create_score_hutuu_description
-		Mittsu::ImageUtils.load_texture("images/hutuu.png")
+		Mittsu::ImageUtils.load_texture("images/凡人.png")
 	end
 
 	def self.create_score_sugoi_description
-		Mittsu::ImageUtils.load_texture("images/sugoi.png")
+		Mittsu::ImageUtils.load_texture("images/神.png")
 	end
 end

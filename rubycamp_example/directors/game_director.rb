@@ -228,7 +228,7 @@ module Directors
 					bullet.expired = true
 					enemy.expired = true
 					
-					if @cnt>=10
+					if @cnt>=1
 						puts "シーン遷移 → EndingDirector"
 						transition_to_next_director
 						break
