@@ -247,6 +247,8 @@ module Directors
 			end
 		end
 
+		#タンクと敵の当たり判定
+
 		def hit_any_enemies2
 			@enemies.each do |enemy|
 				next if enemy.expired
